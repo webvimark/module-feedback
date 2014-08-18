@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\feedback\controllers;
+namespace webvimark\modules\feedback\controllers;
 
-use app\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\Feedback;
 use webvimark\components\BaseController;
 use yii\data\ActiveDataProvider;
 

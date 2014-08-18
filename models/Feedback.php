@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\feedback\models;
+namespace webvimark\modules\feedback\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;

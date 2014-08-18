@@ -3,7 +3,7 @@
  * @var $this yii\web\View
  * @var $model Feedback
  */
-use app\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\Feedback;
 ?>
 
 <div class="feedback-item">

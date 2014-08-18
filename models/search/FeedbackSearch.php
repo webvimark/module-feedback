@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\feedback\models\search;
+namespace webvimark\modules\feedback\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\Feedback;
 
 /**
- * FeedbackSearch represents the model behind the search form about `app\modules\feedback\models\Feedback`.
+ * FeedbackSearch represents the model behind the search form about `webvimark\modules\feedback\models\Feedback`.
  */
 class FeedbackSearch extends Feedback
 {

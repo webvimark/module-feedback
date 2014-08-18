@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\Feedback;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
@@ -12,7 +12,7 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\modules\feedback\models\search\FeedbackSearch $searchModel
+ * @var webvimark\modules\feedback\models\search\FeedbackSearch $searchModel
  */
 
 $this->title = 'Отзывы';

@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\Feedback;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -8,7 +8,7 @@ use webvimark\extensions\ckeditor\CKEditor;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\feedback\models\Feedback $model
+ * @var webvimark\modules\feedback\models\Feedback $model
  * @var yii\bootstrap\ActiveForm $form
  */
 ?>

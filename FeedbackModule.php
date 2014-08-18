@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\feedback;
+namespace webvimark\modules\feedback;
 
 class FeedbackModule extends \yii\base\Module
 {
-	public $controllerNamespace = 'app\modules\feedback\controllers';
+	public $controllerNamespace = 'webvimark\modules\feedback\controllers';
 
 	public function init()
 	{

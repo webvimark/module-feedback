@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\feedback\controllers;
+namespace webvimark\modules\feedback\controllers;
 
 use Yii;
-use app\modules\feedback\models\Feedback;
-use app\modules\feedback\models\search\FeedbackSearch;
+use webvimark\modules\feedback\models\Feedback;
+use webvimark\modules\feedback\models\search\FeedbackSearch;
 use webvimark\components\AdminDefaultController;
 use yii\filters\VerbFilter;
 
@@ -16,12 +16,12 @@ class FeedbackController extends AdminDefaultController
 	/**
 	 * @var Feedback
 	 */
-	public $modelClass = 'app\modules\feedback\models\Feedback';
+	public $modelClass = 'webvimark\modules\feedback\models\Feedback';
 
 	/**
 	 * @var FeedbackSearch
 	 */
-	public $modelSearchClass = 'app\modules\feedback\models\search\FeedbackSearch';
+	public $modelSearchClass = 'webvimark\modules\feedback\models\search\FeedbackSearch';
 
 	public function behaviors()
 	{

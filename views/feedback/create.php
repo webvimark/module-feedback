@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\feedback\models\Feedback $model
+ * @var webvimark\modules\feedback\models\Feedback $model
  */
 
 $this->title = 'Создание отзыва';

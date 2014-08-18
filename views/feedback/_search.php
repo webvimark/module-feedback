@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\feedback\models\search\FeedbackSearch $model
+ * @var webvimark\modules\feedback\models\search\FeedbackSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
