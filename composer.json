@@ -1,0 +1,12 @@
+{
+	"name": "webvimark/module-feedback",
+	"description": "Feedback module",
+	"autoload": {
+		"psr-4": {
+			"webvimark\\modules\\feedback\\": ""
+		}
+	},
+	"require": {
+		"webvimark/components": "dev-master"
+	}
+}
