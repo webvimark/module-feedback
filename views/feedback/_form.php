@@ -21,6 +21,8 @@ use webvimark\extensions\ckeditor\CKEditor;
 
 	<?= $form->field($model, 'status')->dropDownList(Feedback::getStatusList(), ['prompt'=>'']) ?>
 
+	<?= $form->field($model->loadDefaultValues(), 'admin_comment')->dropDownList(Feedback::getAdminCommentList()) ?>
+
 	<?= $form->field($model, 'name')->textInput(['maxlength' => 255, 'autofocus'=>$model->isNewRecord ? true:false]) ?>
 
 	<?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>

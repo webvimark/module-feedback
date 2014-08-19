@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id
  * @property integer $status
  * @property integer $parent_id
+ * @property integer $admin_comment
  * @property string $name
  * @property string $title
  * @property string $body
@@ -69,6 +70,46 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 	}
 
 	/**
+	 * getAdminCommentList
+	 *
+	 * @param $withSpan
+	 *
+	 * @return array
+	 */
+	public static function getAdminCommentList($withSpan = false)
+	{
+		if ( $withSpan )
+		{
+			return [
+				0 => '<span class="label label-warning">Нет</span>',
+				1=> '<span class="label label-success">Да</span>',
+			];
+		}
+		else
+		{
+			return [
+				0 => 'Нет',
+				1 => 'Да',
+			];
+		}
+	}
+
+	/**
+	 * getAdminCommentValue
+	 *
+	 * @param string $val
+	 *
+	 * @return string
+	 */
+	public static function getAdminCommentValue($val)
+	{
+		$ar = self::getAdminCommentList(true);
+
+		return isset( $ar[$val] ) ? $ar[$val] : $val;
+	}
+
+
+	/**
 	* @inheritdoc
 	*/
 	public static function tableName()
@@ -92,7 +133,7 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 	public function rules()
 	{
 		return [
-			[['status', 'parent_id', 'created_at', 'updated_at'], 'integer'],
+			[['status', 'parent_id', 'admin_comment', 'created_at', 'updated_at'], 'integer'],
 			[['name', 'title', 'body'], 'required'],
 			[['body'], 'string'],
 			[['name', 'title'], 'string', 'max' => 50]
@@ -110,6 +151,7 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 			'parent_id' => 'Parent ID',
 			'name' => 'Автор',
 			'title' => 'Название',
+			'admin_comment' => 'От админа',
 			'body' => 'Текст',
 			'created_at' => 'Создано',
 			'updated_at' => 'Обновлено',

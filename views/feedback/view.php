@@ -45,6 +45,11 @@ $this->params['breadcrumbs'][] = $this->title;
 						'value'=>Feedback::getStatusValue($model->status),
 						'format'=>'raw',
 					],
+					[
+						'attribute'=>'admin_comment',
+						'value'=>Feedback::getAdminCommentValue($model->admin_comment),
+						'format'=>'raw',
+					],
 					'title',
 					'body:ntext',
 					'created_at:datetime',
