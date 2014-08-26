@@ -15,7 +15,7 @@ class FeedbackSearch extends Feedback
 	public function rules()
 	{
 		return [
-			[['id', 'status', 'parent_id', 'created_at', 'updated_at'], 'integer'],
+			[['id', 'status', 'parent_id', 'created_at', 'updated_at', 'admin_comment'], 'integer'],
 			[['name', 'title', 'body'], 'safe'],
 		];
 	}
@@ -50,6 +50,7 @@ class FeedbackSearch extends Feedback
 			'feedback.id' => $this->id,
 			'feedback.status' => $this->status,
 			'feedback.parent_id' => $this->parent_id,
+			'feedback.admin_comment' => $this->admin_comment,
 			'feedback.created_at' => $this->created_at,
 			'feedback.updated_at' => $this->updated_at,
 		]);

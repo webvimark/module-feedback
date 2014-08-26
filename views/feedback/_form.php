@@ -1,5 +1,6 @@
 <?php
 
+use webvimark\extensions\BootstrapSwitch\BootstrapSwitch;
 use webvimark\modules\feedback\models\Feedback;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -21,7 +22,7 @@ use webvimark\extensions\ckeditor\CKEditor;
 
 	<?= $form->field($model, 'status')->dropDownList(Feedback::getStatusList(), ['prompt'=>'']) ?>
 
-	<?= $form->field($model->loadDefaultValues(), 'admin_comment')->dropDownList(Feedback::getAdminCommentList()) ?>
+	<?= $form->field($model->loadDefaultValues(), 'admin_comment')->checkbox(['class'=>'b-switch'], false) ?>
 
 	<?= $form->field($model, 'name')->textInput(['maxlength' => 255, 'autofocus'=>$model->isNewRecord ? true:false]) ?>
 
@@ -48,3 +49,5 @@ use webvimark\extensions\ckeditor\CKEditor;
 	<?php ActiveForm::end(); ?>
 
 </div>
+
+<?php BootstrapSwitch::widget() ?>

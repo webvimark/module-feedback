@@ -85,6 +85,10 @@ $this->params['breadcrumbs'][] = $this->title;
 					'created_at:datetime',
 
 					[
+						'class'=>'webvimark\components\StatusColumn',
+						'attribute'=>'admin_comment',
+					],
+					[
 						'attribute'=>'status',
 						'filter'=>Feedback::getStatusList(),
 						'value'=>function($model){
