@@ -2,6 +2,7 @@
 
 namespace webvimark\modules\feedback\models;
 
+use webvimark\modules\feedback\FeedbackModule;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -19,7 +20,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  *
  * @property Feedback $parent
- * @property Feedback[] $feedbacks
+ * @property Feedback[] $comments
  */
 class Feedback extends \webvimark\components\BaseActiveRecord
 {
@@ -135,6 +136,7 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 		return [
 			[['status', 'parent_id', 'admin_comment', 'created_at', 'updated_at'], 'integer'],
 			[['name', 'title', 'body'], 'required'],
+			[['name', 'title', 'body'], 'purgeXSS'],
 			[['body'], 'string'],
 			[['name', 'title'], 'string', 'max' => 50]
 		];
@@ -146,15 +148,15 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 	public function attributeLabels()
 	{
 		return [
-			'id' => 'ID',
-			'status' => 'Статус',
-			'parent_id' => 'Parent ID',
-			'name' => 'Автор',
-			'title' => 'Название',
+			'id'            => 'ID',
+			'status'        => 'Статус',
+			'parent_id'     => 'Parent ID',
+			'name'          => FeedbackModule::t('front', 'Автор'),
+			'title'         => FeedbackModule::t('front', 'Заголовок'),
+			'body'          => FeedbackModule::t('front', 'Текст'),
 			'admin_comment' => 'От админа',
-			'body' => 'Текст',
-			'created_at' => 'Создано',
-			'updated_at' => 'Обновлено',
+			'created_at'    => 'Создано',
+			'updated_at'    => 'Обновлено',
 		];
 	}
 
@@ -169,8 +171,10 @@ class Feedback extends \webvimark\components\BaseActiveRecord
 	/**
 	* @return \yii\db\ActiveQuery
 	*/
-	public function getFeedbacks()
+	public function getComments()
 	{
-		return $this->hasMany(Feedback::className(), ['parent_id' => 'id']);
+		return $this->hasMany(Feedback::className(), ['parent_id' => 'id'])
+			->andWhere(['status'=>Feedback::STATUS_APPROVED])
+			->orderBy('id DESC');
 	}
 }

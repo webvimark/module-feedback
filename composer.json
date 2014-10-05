@@ -7,6 +7,7 @@
 		}
 	},
 	"require": {
-		"webvimark/components": "dev-master"
+		"webvimark/components": "dev-master",
+		"webvimark/fancybox": "*"
 	}
 }

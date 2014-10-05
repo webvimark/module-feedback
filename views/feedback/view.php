@@ -50,6 +50,16 @@ $this->params['breadcrumbs'][] = $this->title;
 						'value'=>Feedback::getAdminCommentValue($model->admin_comment),
 						'format'=>'raw',
 					],
+					[
+						'label'=>'Комментарий к отзыву',
+						'value'=>Html::a(
+								@$model->parent->title . ' [ ' . @$model->parent->name . ' ]',
+								['view', 'id'=>$model->parent_id],
+								['target'=>'_blank']
+							),
+						'visible'=>$model->parent_id !== null,
+						'format'=>'raw',
+					],
 					'title',
 					'body:ntext',
 					'created_at:datetime',

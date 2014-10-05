@@ -20,6 +20,21 @@ use webvimark\extensions\ckeditor\CKEditor;
 		'layout'=>'horizontal',
 		]); ?>
 
+	<?php if ( !$model->isNewRecord AND $model->parent_id !== null ): ?>
+		<div class="form-group">
+			<div class="col-sm-6 col-sm-offset-3">
+				<b>Комментарий к: </b>
+				<?= Html::a(
+					$model->parent->title . ' [ ' . $model->parent->name . ' ]',
+					['view', 'id'=>$model->parent_id],
+					['target'=>'_blank']
+				) ?>
+			</div>
+
+		</div>
+		<br/>
+	<?php endif; ?>
+
 	<?= $form->field($model, 'status')->dropDownList(Feedback::getStatusList(), ['prompt'=>'']) ?>
 
 	<?= $form->field($model->loadDefaultValues(), 'admin_comment')->checkbox(['class'=>'b-switch'], false) ?>
