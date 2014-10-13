@@ -82,6 +82,30 @@ $this->params['breadcrumbs'][] = $this->title;
 						'format'=>'raw',
 					],
 					'title',
+
+					[
+						'attribute'=>'parent_id',
+						'label'=>'Комментарий',
+						'filter'=>false,
+						'value'=>function($model){
+								if ( $model->parent_id === null )
+								{
+									return 'Отзыв';
+								}
+								else
+								{
+									return 'Комментарий к ' . Html::a(
+										$model->parent_id,
+										['view', 'id'=>$model->parent_id],
+										[
+											'target'=>'_blank',
+											'data-pjax'=>0,
+										]
+									);
+								}
+							},
+						'format'=>'raw',
+					],
 					'created_at:datetime',
 
 					[
